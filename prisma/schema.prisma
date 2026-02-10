@@ -1,0 +1,20 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+model food {
+    id        Int      @id @default(autoincrement())
+    nome      String
+    descricao String
+    preco     Float
+    categoria String
+    disponibilidade Boolean @default(true)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("food")
+}
